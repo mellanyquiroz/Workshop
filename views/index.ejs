@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/lib/boostrap/css/bootstrap.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<p>Homepage</p>
+<p>Welcome!</p>
+<ul id="categories" class="list-group">
+  <img src="/images/Bars.svg" id="bars">
+</ul>
+<script>
+  $(document).ready(function() {
+    $.getJSON('http://localhost:3000/categories', function(data) {
+      console.log(data);
+      $('#bars').remove();
+      for(let category of data.categories) {
+      $('#categories').append(`<li class="list-group-item"><a href="/categories/${category.id}">${category.name}</a></li>`);
+      }
+    });
+  });
+</script>

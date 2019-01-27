@@ -1,0 +1,14 @@
+<ul id="resources" class="list-group">
+  <img src="/images/Bars.svg" id="bars">
+</ul>
+<script>
+  $(document).ready(function() {
+    $.getJSON('http://localhost:3000/resources?category_id=<%=params.id%>', function(data) {
+      console.log(data);
+      $('#bars').remove();
+      for(let resource of data.resources) {
+      $('#resources').append(`<li class="list-group-item">${resource.name}</li>`);
+      }
+    });
+  });
+</script>
