@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<body>
+<header>
+<ul id="resources" class="list-group">
+  <img src="/images/Bars.svg" id="bars">
+</ul>
+<script>
+  $(document).ready(function() {
+    $.getJSON('http://localhost:3000/resources/<%=params.id%>', function(data) {
+      console.log(data);
+      $('#bars').remove();
+      $('#resources').append(`<h1>${data.resource.name}</h1>`);
+      for(let phone of data.resource.phones) {
+        $('#resources').append(`<h2>${phone.number}</h2>`);
+      }
+      for(let schedule of data.resource.schedule.schedule_days) {
+        $('#resources').append(`<h3>${schedule.day}</h3>`);
+        $('#resources').append(`<h3>${schedule.closes_at}</h3>`);
+        $('#resources').append(`<h3>${schedule.opens_at}</h3>`);
+      }
+    });
+  });
+</script>
+</header>
+</body>
+</html>
