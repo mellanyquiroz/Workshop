@@ -1,5 +1,5 @@
-<p>Homepage</p>
-<p>Welcome!</p>
+<h1>Welcome!</h1>
+<h2>What would you like to contribute with today?</h2>
 <div class="container marketing">
   <div id="categories" class="row">
     <img src="/images/Bars.svg" id="bars">
@@ -13,11 +13,14 @@
       for(let category of data.categories) {
       $('#categories').append(
         `
+        <div class="row">
+        <div class="col-lg-4"
         <div class="categories">
           <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2>${category.name} </h2>
-          <p>Donec sed odio dui.</p>
+          <h2> ${category.name} </h2>
           <p><a class="btn btn-secondary" href="/categories/${category.id}">${category.name} &raquo;</a></p>
+        </div>
+        </div>
         </div>
         `);
       }

@@ -10,6 +10,7 @@ var postsRouter = require('./routes/posts');
 var usersRouter = require('./routes/users');
 var resourcesRouter = require('./routes/resources');
 var categoriesRouter = require('./routes/categories');
+var calendarRouter = require('./routes/calendar');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
 app.use('/resources', resourcesRouter);
+app.use('/calendar', calendarRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
