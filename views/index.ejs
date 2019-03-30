@@ -7,22 +7,24 @@
 </div>
 <script>
   $(document).ready(function() {
-    $.getJSON('http://localhost:3000/categories', function(data) {
+    $.getJSON('https://devmission-askdarcel-api.herokuapp.com/needs', function(data) {
       console.log(data);
       $('#bars').remove();
-      for(let category of data.categories) {
+      for(let need of data.needs) {
+      if(need.parent_id == null)
+      {
       $('#categories').append(
         `
         <div class="row">
         <div class="col-lg-4"
         <div class="categories">
           <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h2> ${category.name} </h2>
-          <p><a class="btn btn-secondary" href="/categories/${category.id}">${category.name} &raquo;</a></p>
+          <p><a class="btn btn-secondary" href="/categories/${need.id}">${need.name} &raquo;</a></p>
         </div>
         </div>
         </div>
         `);
+      }
       }
     });
   });

@@ -1,9 +1,10 @@
+<h1>Time</h1>
 <ul id="resources" class="list-group">
   <img src="/images/Bars.svg" id="bars">
 </ul>
 <script>
   $(document).ready(function() {
-    $.getJSON('http://localhost:3000/resources?category_id=<%=params.id%>', function(data) {
+    $.getJSON('https://devmission-askdarcel-api.herokuapp.com/resources?need_id=<%=params.id%>', function(data) {
       console.log(data);
       $('#bars').remove();
       for(let resource of data.resources) {

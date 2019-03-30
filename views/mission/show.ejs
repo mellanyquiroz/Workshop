@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<body>
+<header>
+  <script>
+    $(document).ready(function() {
+      $.getJSON('https://devmission-askdarcel-api.herokuapp.com/mission', function(data) {
+        console.log(data);
+        $('#bars').remove();
+      });
+    });
+  </script>
+</header>
+</body>
+</html>
